@@ -3,22 +3,21 @@ const mongoose = require('mongoose');
 const orderSchema = new mongoose.Schema({
   userId: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'users', 
+    ref: 'users',
   },
-  products: {
-    type: [{
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'products', 
-    }],
-    required: true
-  },
+  orderItems: [
+    {
+      type: Object,
+      required: true
+    }
+  ],
   totalPrice: {
     type: Number,
     required: true
   },
   coupon: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'coupon',
+    ref: 'coupons',
   },
   createdAt: {
     type: Date,
